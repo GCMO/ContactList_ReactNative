@@ -21,10 +21,10 @@ export default ContactScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'salmon',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 20,
+  
   },
   names: {
     color: '#000',

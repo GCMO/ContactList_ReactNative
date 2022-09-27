@@ -13,10 +13,6 @@ export default function App() {
     <NavigationContainer style={styles.container}>
       <Drawer.Navigator initialRouteName="Contacts">
         <Drawer.Screen name="Contacts" component={ContactScreen} />
-          <View >
-            <Text>MOST AMAZING CONTACT LIST</Text>
-            <StatusBar style="auto" />
-          </View>
         <Drawer.Screen name="Details" component={DetailsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>

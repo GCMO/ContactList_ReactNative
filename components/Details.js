@@ -5,8 +5,11 @@ const DetailsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
        { customers.map(customer => {
-        return <Text style={styles.names} onPress={ () => navigation.closeDrawer() } title='Go Back to Contacts'>
-          {`${customer.email} ${customer.cell} ${customer.location}`}
+        return <Text style={styles.names} onPress={ () => navigation.goBack() } title='Go Back to Contacts'>
+          {`${customer.name.first} ${customer.name.last}
+           ${customer.email} 
+           ${customer.cell} 
+           ${customer.location.city}`}
         </Text>
        })}
     </View>
