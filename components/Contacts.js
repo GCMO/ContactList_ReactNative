@@ -7,7 +7,7 @@ const ContactScreen = ({navigation}) => {
   return (
         <View style={styles.container}>
           { customers.map(customer => {
-            return <Text style={styles.names} onPress={() =>navigation.openDrawer('Details')} title="Go to details">
+            return <Text style={styles.names} onPress={() =>navigation.navigate('Details', {customer: customer})} title="Go to details">
               {`${customer.name.title} ${customer.name.first} ${customer.name.last}`}
             </Text>
           })}
@@ -19,17 +19,24 @@ export default ContactScreen
 
 // STYLES
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'salmon',
-    alignItems: 'center',
-    justifyContent: 'center',
   
-  },
-  names: {
-    color: '#000',
-    alignItems: 'center',
+  container: {
+    fflex: 1,
+    gap:'0.3rem',
+    textAlign:'left',
     justifyContent: 'center',
-    fontSize: 20,
+  },
+
+  names: {
+    paddingLeft: '3rem',
+    marginLeft: '.5rem',
+    marginRight: '.5rem',
+    backgroundColor: 'salmon',
+    border: '1px solid black',
+    color: '#000',
+    fontSize: 18,
+    fontWeight: 700,
+    lineHeight: '1.7rem',
+    borderRadius: '.5rem'
   }
 });

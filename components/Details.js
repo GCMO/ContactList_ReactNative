@@ -1,17 +1,19 @@
 import { StyleSheet, View, Text } from "react-native"
-import { customers } from "../customers"
 
-const DetailsScreen = ({ navigation }) => {
+const DetailsScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
-       { customers.map(customer => {
-        return <Text style={styles.names} onPress={ () => navigation.goBack() } title='Go Back to Contacts'>
-          {`${customer.name.first} ${customer.name.last}
-           ${customer.email} 
-           ${customer.cell} 
-           ${customer.location.city}`}
+
+      <img src={route.params.customer.picture.large} style={styles.image} onClick={ () => navigation.goBack() } title='Go Back to Contacts' /> 
+
+      <Text style={styles.names} onClick={ () => navigation.goBack() } title='Go Back to Contacts'>
+          {`
+           Name:  ${route.params.customer.name.first} ${route.params.customer.name.last}
+           Email: ${route.params.customer.email} 
+           Cell:  ${route.params.customer.cell} 
+           City:  ${route.params.customer.location.city}
+           `}
         </Text>
-       })}
     </View>
   )
 }
@@ -20,17 +22,28 @@ export default DetailsScreen
 
 // STYLES
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
+    fontSize: 20, 
+    margin: '1rem'
   },
+
   names: {
+    flex: 1,
     color: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
+    marginTop: '1rem',
+    paddingLeft: '50%',
+    fontSize: 18,
+    border: '1px solid black',
+    borderRadius: '1rem',
+    maxWidth:'100%',
+    textAlign:'left',
+  },
+
+  image:{
+    flex: '1',
+    borderRadius: '2rem',
   }
 });
